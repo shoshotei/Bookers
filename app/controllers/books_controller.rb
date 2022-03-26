@@ -4,6 +4,7 @@ class BooksController < ApplicationController
     book = Book.new(book_params)
     book.save
     redirect_to '/books'
+    #'/books'の部分後で変更する。
   end
 
   def index
@@ -16,6 +17,14 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @book = Book.find(params[:id])
+  end
+
+  def update
+    @book = Book.find(params[:id])
+    @book.update(book_params)
+    redirect_to '/books'
+      #'/books'の部分後で変更する。
   end
 
   def destroy
